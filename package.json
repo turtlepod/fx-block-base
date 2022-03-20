@@ -12,7 +12,8 @@
 	"webpackConfig": {
 		"outputDir": "/blocks/dist/",
 		"entry": {
-			"info-box": "./blocks/info-box/index.js"
+			"info-box": "./blocks/info-box/index.js",
+			"alert-box": "./blocks/alert-box/index.js"
 		}
 	},
 	"dependencies": {},
