@@ -6,7 +6,7 @@
  * Version: 1.0.0
  * Author: David Chandra Purnama
  * Author URI: http://turtlepod.xyz/
- * License: GPLv2 or later
+ * License: GPLv3
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
 **/
 
