@@ -8,7 +8,8 @@
 	"category": "fxbb",
 	"attributes": {
 		"text": {
-			"type": "string"
+			"type": "string",
+      "default": "Add alert here..."
 		}
 	},
 	"example": {

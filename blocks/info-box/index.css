@@ -1,5 +1,10 @@
 .fxbb-infobox-block {
 	padding: 20px 30px;
+	margin-bottom: 30px;
 	background: darkblue;
 	color: white;
+}
+
+.fxbb-infobox-block p:last-child {
+	margin-bottom: 0;
 }

@@ -1,5 +1,10 @@
 .fxbb-alertbox-block {
 	padding: 20px 30px;
+	margin-bottom: 30px;
 	background: darkred;
 	color: white;
+}
+
+.fxbb-alertbox-block p:last-child {
+	margin-bottom: 0;
 }

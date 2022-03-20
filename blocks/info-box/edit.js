@@ -20,7 +20,6 @@ const BlockEdit = ({
 		<Fragment>
 			<div {...blockProps}>
 				<RichText
-					className="fxbb-infobox-block__description"
 					tagName="p"
 					placeholder={__('Description here…', 'fxbb')}
 					keepPlaceholderOnFocus="true"

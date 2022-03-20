@@ -13,7 +13,5 @@ $attributes = wp_parse_args(
 ?>
 
 <div class="fxbb-alertbox-block <?php echo esc_attr( isset( $attributes['className'] ) ? $attributes['className'] : '' ); ?>">
-	<p class="fxbb-alertbox-block__description">
-		<?php echo wp_kses_post( $attributes['text'] ); ?>
-	</p>
+	<?php echo wp_kses_post( wpautop( $attributes['text'], true ) ); ?>
 </div>
