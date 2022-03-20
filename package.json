@@ -1,0 +1,26 @@
+{
+  "name": "my-block-notification",
+  "version": "1.0.0",
+  "description": "My Gutenberg Example.",
+  "scripts": {
+    "start": "npm install && webpack -d --watch",
+    "watch": "webpack --mode development --watch",
+    "build": "webpack --mode production"
+  },
+  "author": "turtlepod",
+  "license": "GPL-3.0",
+  "entry": {
+    "/": "./blocks/cta-complete/index.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.17.8",
+    "@babel/plugin-transform-runtime": "^7.17.0",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "babel-loader": "^8.2.3",
+    "json-loader": "^0.5.7",
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2"
+  }
+}
