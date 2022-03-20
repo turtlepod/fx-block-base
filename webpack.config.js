@@ -4,7 +4,7 @@ module.exports = {
 	entry: packageJson.webpackConfig.entry,
 	output: {
 		path: __dirname + packageJson.webpackConfig.outputDir,
-		filename: '[name]/editor.min.js',
+		filename: '[name].min.js',
 	},
 	module: {
 		rules: [

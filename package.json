@@ -10,9 +10,9 @@
 	"author": "turtlepod",
 	"license": "GPL-3.0",
 	"webpackConfig": {
-		"outputDir": "/blocks/",
+		"outputDir": "/blocks/dist/",
 		"entry": {
-			"cta-complete": "./blocks/cta-complete/index.js"
+			"info-box": "./blocks/info-box/index.js"
 		}
 	},
 	"dependencies": {},

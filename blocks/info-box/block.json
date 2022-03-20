@@ -1,0 +1,19 @@
+{
+	"title": "f(x) Info Box",
+	"apiVersion": 2,
+	"description": "Simple info box example",
+	"text-domain": "fxbb",
+	"name": "fxbb/info-box",
+	"icon": "info-outline",
+	"category": "fxbb",
+	"attributes": {
+		"text": {
+			"type": "string"
+		}
+	},
+	"example": {
+		"attributes": {
+			"text": "Hello World! Venenatis saepe perspiciatis illum qui voluptatum sagittis nihil."
+		}
+	}
+}

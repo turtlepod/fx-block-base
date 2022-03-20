@@ -18,4 +18,4 @@ define( 'FXBB_INC', FXBB_PATH . 'includes/' );
 define( 'FXBB_BLOCK_DIR', FXBB_PATH . 'blocks/' );
 
 // Load blocks.
-require_once FXBB_INC . 'blocks.php';
+require_once FXBB_BLOCK_DIR . 'blocks.php';
