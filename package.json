@@ -1,14 +1,14 @@
 {
-	"name": "my-block-notification",
+	"name": "fx-block-base",
 	"version": "1.0.0",
-	"description": "My Gutenberg Example.",
+	"description": "Block starter plugin with examples.",
 	"scripts": {
 		"start": "npm install && webpack -d --watch",
 		"watch": "webpack --mode development --watch",
 		"build": "webpack --mode production"
 	},
 	"author": "turtlepod",
-	"license": "GPL-3.0",
+	"license": "GPLV3",
 	"webpackConfig": {
 		"outputDir": "/blocks/dist/",
 		"entry": {

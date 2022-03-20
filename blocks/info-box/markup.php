@@ -7,13 +7,12 @@
 $attributes = wp_parse_args(
 	$args['attributes'] ?? [],
 	[
-		'text' => '',
+		'className' => '',
+		'text'      => '',
 	]
 );
 ?>
 
-<div class="fxbb-infobox-block <?php echo esc_attr( isset( $attributes['className'] ) ? $attributes['className'] : '' ); ?>">
-	<p class="fxbb-infobox-block__description">
-		<?php echo wp_kses_post( $attributes['text'] ); ?>
-	</p>
+<div class="fxbb-infobox-block <?php echo esc_attr( $attributes['className'] ); ?>">
+	<p><?php echo wp_kses_post( $attributes['text'] ); ?></p>
 </div>

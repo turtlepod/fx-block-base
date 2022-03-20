@@ -2,7 +2,7 @@
 /**
  * Plugin Name: f(x) Block Base
  * Plugin URI: http://genbumedia.com/plugins/fx-updater/
- * Description: Block Starter Plugin with Examples
+ * Description: Block starter plugin with examples.
  * Version: 1.0.0
  * Author: David Chandra Purnama
  * Author URI: http://turtlepod.xyz/
