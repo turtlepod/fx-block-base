@@ -1,10 +1,10 @@
+const packageJson = require('./package.json');
+
 module.exports = {
-	entry: {
-		'/': './my-block-notification.js'
-	},
+	entry: packageJson.webpackConfig.entry,
 	output: {
-		path: __dirname,
-		filename: 'my-block-notification.min.js',
+		path: __dirname + packageJson.webpackConfig.outputDir,
+		filename: '[name]/editor.min.js',
 	},
 	module: {
 		rules: [
