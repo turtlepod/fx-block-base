@@ -20,6 +20,7 @@ function register() {
 		FXBB_BLOCK_DIR . 'cta-complete', // this is the directory where the block.json is found.
 		[
 			'render_callback' => $n( 'render_block_callback' ),
+			'editor_script'   => 'cta-complete',
 		]
 	);
 }

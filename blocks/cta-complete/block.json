@@ -33,6 +33,5 @@
 			"ctaLink": "https://10up.com",
 			"ctaText": "Cta Text"
 		}
-	},
-	"editorScript": "file:./../../dist/cta-complete-block/editor.js"
+	}
 }

@@ -24,7 +24,18 @@ add_action( 'plugins_loaded', __NAMESPACE__ . '\setup' );
  * Blocks Editor Scripts and Styles.
  */
 function blocks_editor_scripts() {
-
+	wp_enqueue_script(
+		'cta-complete',
+		FXBB_URI . 'blocks/cta-complete/editor.min.js',
+		[
+			'wp-element',
+			'wp-blocks',
+			'wp-components',
+			'wp-editor',
+		],
+		FXBB_VERSION,
+		true
+	);
 }
 
 /**
