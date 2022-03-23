@@ -5,6 +5,10 @@
 	color: white;
 }
 
+.fxbb-infobox-block.is-style-round-corner {
+	border-radius: 20px;
+}
+
 .fxbb-infobox-block p:last-child {
 	margin-bottom: 0;
 }

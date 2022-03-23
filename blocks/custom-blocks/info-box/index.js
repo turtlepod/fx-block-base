@@ -2,7 +2,7 @@
  * WordPress dependencies
  */
 const {
-	blocks: { registerBlockType },
+	blocks: { registerBlockType, registerBlockStyle },
 	domReady,
 } = wp;
 
@@ -21,5 +21,9 @@ domReady(function () {
 		description: block.description,
 		edit,
 		save: () => null,
+	});
+	registerBlockStyle(block.name, {
+		name: 'round-corner',
+		label: 'Round corner',
 	});
 });
