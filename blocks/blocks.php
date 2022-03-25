@@ -14,8 +14,8 @@ namespace FxBlockBase\Blocks;
  */
 function config() {
 	$config = [
-		'prefix'     => 'fx_block',
-		'categories' => [
+		'prefix'           => 'fx_block',
+		'categories'       => [
 			[
 				'slug'  => 'fxbb',
 				'title' => 'f(x) Blocks',
