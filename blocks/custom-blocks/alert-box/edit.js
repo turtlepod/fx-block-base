@@ -4,7 +4,7 @@
 const {
 	i18n: { __ },
 	element: { Fragment },
-	blockEditor: { RichText, useBlockProps, InspectorControls },
+	blockEditor: { useBlockProps, InspectorControls },
 	components: { TextareaControl, PanelBody, PanelRow },
 } = wp;
 const ServerSideRender = wp.serverSideRender || wp.components.ServerSideRender;

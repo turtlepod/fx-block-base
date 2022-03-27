@@ -9,7 +9,7 @@ const {
 } = wp;
 
 domReady(() => {
-	// Unregister variations
+	// Unregister Variations
 	const allowedEmbedBlocks = ['youtube'];
 	getBlockVariations('core/embed').forEach(function (blockVariation) {
 		if (allowedEmbedBlocks.indexOf(blockVariation.name) === -1) {

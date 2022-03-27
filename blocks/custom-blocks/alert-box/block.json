@@ -1,20 +1,20 @@
 {
-	"title": "f(x) Alert Box",
-	"apiVersion": 2,
-	"description": "Simple alert box example",
-	"text-domain": "fxbb",
-	"name": "fxbb/alert-box",
-	"icon": "warning",
-	"category": "fxbb",
-	"attributes": {
-		"text": {
-			"type": "string",
+  "title": "f(x) Alert Box",
+  "apiVersion": 2,
+  "description": "Simple alert box example",
+  "text-domain": "fxbb",
+  "name": "fxbb/alert-box",
+  "icon": "warning",
+  "category": "fxbb",
+  "attributes": {
+    "text": {
+      "type": "string",
       "default": "Add alert here..."
-		}
-	},
-	"example": {
-		"attributes": {
-			"text": "Hello World! Venenatis saepe perspiciatis illum qui voluptatum sagittis nihil."
-		}
-	}
+    }
+  },
+  "example": {
+    "attributes": {
+      "text": "Hello World! Venenatis saepe perspiciatis illum qui voluptatum sagittis nihil."
+    }
+  }
 }
