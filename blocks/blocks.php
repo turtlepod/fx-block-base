@@ -7,6 +7,12 @@
 
 namespace FxBlockBase\Blocks;
 
+// Constants.
+define( __NAMESPACE__ . '\PATH', plugin_dir_path(__FILE__) );
+define( __NAMESPACE__ . '\URI', plugin_dir_url(__FILE__) );
+define( __NAMESPACE__ . '\DIST_PATH', PATH . 'dist/' );
+define( __NAMESPACE__ . '\DIST_URI', URI . 'dist/' );
+
 /**
  * Configuration
  *
@@ -49,7 +55,9 @@ function setup() {
 	add_action( 'wp_enqueue_scripts', $n( 'custom_blocks_scripts' ) );
 
 	// Block Patterns.
-	add_action( 'after_setup_theme', $n( 'remove_default_patterns' ) );
+	add_action( 'after_setup_theme', function() {
+		remove_theme_support( 'core-block-patterns' );
+	} );
 	add_action( 'init', $n( 'register_block_patterns' ) );
 }
 add_action( 'plugins_loaded', __NAMESPACE__ . '\setup' );
@@ -59,11 +67,11 @@ add_action( 'plugins_loaded', __NAMESPACE__ . '\setup' );
  */
 function block_editor_assets() {
 	$prefix         = config()['prefix'];
-	$editor_scripts = plugin_dir_path(__FILE__) . '/dist/editor.min.js';
+	$editor_scripts = DIST_PATH . 'editor.js';
 	if ( file_exists( $editor_scripts) ) {
 		wp_enqueue_script(
 			"{$prefix}_editor_js",
-			plugin_dir_url( __FILE__ ) . 'dist/editor.min.js',
+			DIST_URI . 'editor.js',
 			[
 				'wp-i18n',
 				'wp-blocks',
@@ -80,11 +88,11 @@ function block_editor_assets() {
 			true
 		);
 	}
-	$editor_style = plugin_dir_path(__FILE__) . '/editor.css';
+	$editor_style = DIST_PATH . 'editor-style.css';
 	if ( file_exists( $editor_style) ) {
 		wp_enqueue_style(
-			"{$prefix}_editor_css",
-			plugin_dir_url( __FILE__ ) . '/editor.css',
+			"{$prefix}_editor_style_css",
+			DIST_URI . 'editor-style.css',
 			[],
 			filemtime( $editor_style )
 		);
@@ -96,11 +104,11 @@ function block_editor_assets() {
  */
 function block_assets() {
 	$prefix = config()['prefix'];
-	$style = plugin_dir_path(__FILE__) . '/index.css';
+	$style  = DIST_PATH . 'style.css';
 	if ( file_exists( $style) ) {
 		wp_enqueue_style(
 			"{$prefix}_css",
-			plugin_dir_url( __FILE__ ) . '/index.css',
+			DIST_URI . 'style.css',
 			[],
 			filemtime( $style )
 		);
@@ -138,14 +146,14 @@ function blocks_categories( $categories, $block_editor_context ) {
  */
 function register_custom_blocks() {
 	$prefix = config()['prefix'];
-	$dirs   = glob( plugin_dir_path(__FILE__) . 'custom-blocks/*', GLOB_ONLYDIR );
+	$dirs   = glob( PATH . 'custom-blocks/*', GLOB_ONLYDIR );
 	foreach ( $dirs as $dir ) {
 		$block  = basename( $dir );
 		$json   = trailingslashit( $dir ) . 'block.json';
 		$markup = trailingslashit( $dir ) . 'markup.php';
-		$script = trailingslashit( $dir ) . 'index.js';
-		$style  = trailingslashit( $dir ) . 'index.css';
-		$editor = trailingslashit( $dir ) . 'editor.css';
+		$script = trailingslashit( $dir ) . 'block.js';
+		$style  = trailingslashit( $dir ) . 'style.css';
+		$editor = trailingslashit( $dir ) . 'editor-style.css';
 		if ( file_exists( $json ) && file_exists( $markup ) && file_exists( $script ) ) {
 			$args = [
 				'editor_script'   => "{$prefix}_{$block}_editor_script",
@@ -176,24 +184,27 @@ function register_custom_blocks() {
  */
 function custom_blocks_scripts() {
 	$prefix = config()['prefix'];
-	$dirs   = glob( plugin_dir_path(__FILE__) . 'custom-blocks/*', GLOB_ONLYDIR );
+	$dirs   = glob( PATH . 'custom-blocks/*', GLOB_ONLYDIR );
 	foreach ( $dirs as $dir ) {
 		$block = basename( $dir );
 
 		// Block script.
-		$script = plugin_dir_path(__FILE__) . 'dist/custom-blocks/' . $block . '.min.js';
+		$script = DIST_PATH . 'custom-blocks/' . $block . '/block.js';
 		if ( file_exists( $script ) ) {
 			wp_register_script(
 				"{$prefix}_{$block}_editor_script",
-				plugin_dir_url( __FILE__ ) . 'dist/custom-blocks/' . basename( $script ),
+				DIST_URI . 'custom-blocks/' . $block . '/block.js',
 				[
-					'wp-block-editor',
+					'wp-i18n',
 					'wp-blocks',
 					'wp-components',
-					'wp-dom-ready',
+					'wp-data',
+					'wp-editor',
 					'wp-element',
-					'wp-i18n',
-					'wp-polyfill',
+					'wp-url',
+					'wp-edit-post',
+					'wp-dom-ready',
+					'wp-api-fetch',
 				],
 				filemtime( $script ),
 				true
@@ -201,34 +212,27 @@ function custom_blocks_scripts() {
 		}
 
 		// Block style.
-		$style = trailingslashit( $dir ) . 'index.css';
+		$style = trailingslashit( $dir ) . 'style.css';
 		if ( file_exists( $style ) ) {
 			wp_register_style(
 				"{$prefix}_{$block}_style",
-				plugin_dir_url( __FILE__ ) . 'custom-blocks/' . $block . '/index.css',
+				DIST_URI . 'custom-blocks/' . $block . '/style.css',
 				[],
 				filemtime( $style )
 			);
 		}
 
 		// Editor style.
-		$editor_style = trailingslashit( $dir ) . 'editor.css';
+		$editor_style = trailingslashit( $dir ) . 'editor-style.css';
 		if ( file_exists( $editor_style ) ) {
 			wp_register_style(
 				"{$prefix}_{$block}_editor_style",
-				plugin_dir_url( __FILE__ ) . 'custom-blocks/' . $block . '/editor.css',
+				DIST_URI . 'custom-blocks/' . $block . '/editor-style.css',
 				[],
 				filemtime( $editor_style )
 			);
 		}
 	}
-}
-
-/**
- * Remove Default Patterns
- */
-function remove_default_patterns() {
-	remove_theme_support( 'core-block-patterns' );
 }
 
 /**
@@ -248,7 +252,7 @@ function register_block_patterns() {
 	);
 
 	// Register patterns.
-	$files    = glob( plugin_dir_path(__FILE__) . 'block-patterns/*.html' );
+	$files    = glob( PATH . 'block-patterns/*.html' );
 	$patterns = [];
 
 	foreach ( $files as $file_path ) {
@@ -259,7 +263,7 @@ function register_block_patterns() {
 		ob_start();
 		include $file_path;
 		$content = ob_get_clean();
-		$content = str_replace( '{URI}/', plugin_dir_url( __FILE__ ), $content );
+		$content = str_replace( '{URI}/', URI, $content );
 		$name    = basename( $file_path, '.html' );
 
 		register_block_pattern(

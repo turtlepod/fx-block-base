@@ -1,0 +1,17 @@
+/* This file is loaded in editor and front-end */
+.wp-block-image.is-style-slightly-rounded img {
+	border-radius: 20px;
+}
+.wp-block-columns.fx-pricing-table {
+	margin-bottom: 0;
+}
+.wp-block-columns.fx-pricing-table .wp-block-column {
+	border: 1px solid #000;
+	padding: 20px;
+	margin-bottom: 20px;
+}
+.wp-block-columns.fx-pricing-table .wp-block-column h3 {
+	border-bottom: 1px dotted #000;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+}

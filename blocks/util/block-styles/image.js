@@ -3,13 +3,9 @@ const {
 	domReady,
 } = wp;
 
-function registerImageStyles() {
+domReady(() => {
 	registerBlockStyle('core/image', {
 		name: 'slightly-rounded',
 		label: 'Slightly Rounded',
 	});
-}
-
-domReady(() => {
-	registerImageStyles();
 });
